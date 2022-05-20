@@ -5,12 +5,13 @@ import styled from "styled-components";
 
 import UserContext from "../contexts/UserContext";
 
-export default function Logout() {
+export default function Logout({ setSidebar, setHiddenLogout }) {
     const { Error } = useContext(UserContext);
     const navigate = useNavigate();
     const [hidden, setHidden] = useState(true);
+    const [loading, setLoading] = useState(false);
 
-    function logout({ setSidebar }) {
+    function logout() {
         const config = {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("TOKEN")}`,
@@ -22,6 +23,7 @@ export default function Logout() {
             navigate("/");
             setHidden(false);
             setSidebar(false);
+            setHiddenLogout(false);
         });
         promise.catch((err) => {
             Error(err);
@@ -31,7 +33,7 @@ export default function Logout() {
     return (
         <Article hidden={hidden} content={loading}>
             {loading ? (
-                <Loading color={"white"} />
+                <></>
             ) : (
                 <>
                     <h4>Você tem certeza ?</h4>

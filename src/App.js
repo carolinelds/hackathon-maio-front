@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import TestPage from "./components/TestPage.js";
 import UserContext from "./contexts/UserContext.js";
+import Menu from "./components/Menu.js";
 
 export default function App() {
     
@@ -17,6 +18,7 @@ export default function App() {
         <UserContext.Provider value={Error}>
             <Div>
                 <BrowserRouter>
+                    <Menu />
                     <Routes>
                         <Route path="/test" element={<TestPage />}></Route>
                     </Routes>
@@ -27,13 +29,13 @@ export default function App() {
 }
 
 const Div = styled.div`
-    /*background-color: ?;*/
+    background-color: #d5e0d8;
     display: flex;
     justify-content: center;
     align-items: center;
     
     * {
-        /*font-family: ?;*/
+        font-family: 'Roboto', sans-serif;
         box-sizing: border-box;
     }
 `;
