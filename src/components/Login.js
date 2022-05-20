@@ -33,7 +33,7 @@ export default function Login() {
         });
         promise.catch((err) => {
             Error(err);
-            navigate("/login");
+            navigate("/");
             setLoading(false);
         });
     }
@@ -46,10 +46,10 @@ export default function Login() {
     return (
         <MainStyle>
             {loading ? (
-                <Loading/>
+                <Loading color={"orange"}/>
             ) : (
                 <>
-                    <h1>PetZen</h1>
+                    <h1>Courson</h1>
                     <form onSubmit={(e) => sendInputData(e)}>
                         <input
                             type="email"
@@ -87,25 +87,18 @@ const MainStyle = styled.main`
     display: flex;
     width: 100%;
     height: 100vh;
-    background-color: var(--light-gray);
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     h1 {
-        font-family: 'Righteous', cursive;
+        font-family: 'Roboto', cursive;
         font-weight: bold;
-        color: #ffffff;
+        color: #49fc8b;
         font-size: 400%;
         line-height: 50px;
         margin: -5px 0px 24px;
-    }
-    h2 {
-        font-weight: bold;
-        color: #ffffff;
-        font-size: 25px;
-        line-height: 50px;
-        margin: -5px 0px;
     }
     form {
         display: flex;
@@ -115,7 +108,7 @@ const MainStyle = styled.main`
         margin-top: 10px;
     }
     button {
-        background-color: #c747fc;
+        background-color: var(--cyan);
         border: none;
         width: 31%;
         height: 54px;
@@ -139,12 +132,13 @@ const MainStyle = styled.main`
         padding: 18px 15px;
         border-radius: 30px;
         border: none;
+        background-color: var(--light-gray);
         color: #000000;
         font-size: 12 px;
         margin-bottom: 13px;
     }
     a {
-        color: #ffffff;
+        color: #49fc8b;
         text-decoration: none;
         font-weight: 700;
         font-size: 15px;
