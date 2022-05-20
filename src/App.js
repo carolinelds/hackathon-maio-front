@@ -1,9 +1,10 @@
-import "./assets/css/reset.css";
-import styled from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import TestPage from "./components/TestPage.js";
 import UserContext from "./contexts/UserContext.js";
+
+import GlobalStyle from "./assets/globalStyles";
+import Login from "./components/Login.js";
 import Menu from "./components/Menu.js";
 
 export default function App() {
@@ -16,26 +17,14 @@ export default function App() {
 
     return (
         <UserContext.Provider value={Error}>
-            <Div>
-                <BrowserRouter>
-                    <Menu />
-                    <Routes>
-                        <Route path="/test" element={<TestPage />}></Route>
-                    </Routes>
-                </BrowserRouter>
-            </Div >
+            <GlobalStyle />
+            <BrowserRouter>
+                <Menu />
+                <Routes>
+                    <Route path="/" element={<Login />} />
+                    <Route path="/test" element={<TestPage />}/>
+                </Routes>
+            </BrowserRouter>
         </UserContext.Provider>
     );
 }
-
-const Div = styled.div`
-    background-color: #d5e0d8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    * {
-        font-family: 'Roboto', sans-serif;
-        box-sizing: border-box;
-    }
-`;
