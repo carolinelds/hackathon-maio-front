@@ -28,7 +28,7 @@ export default function Login() {
 
             localStorage.setItem("TOKEN", token);
             localStorage.setItem("USER", JSON.stringify(user));
-            navigate("/");
+            navigate("/home");
             setLoading(false);
         });
         promise.catch((err) => {
