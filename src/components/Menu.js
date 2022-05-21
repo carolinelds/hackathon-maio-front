@@ -19,7 +19,7 @@ export default function Menu() {
     function renderOptions() {
         return hiddenLogout ? <Logout setHiddenLogout = {setHiddenLogout}  setSidebar = {setSidebar}/> : checkUserLoggedIn(token) ? (
             <ul>
-                <li onClick={() => goTo("courses")}>
+                <li onClick={() => goTo("home")}>
                     <div className="options-icon">
                         <ion-icon name="book-outline"></ion-icon>                    </div>
                     <p>Cursos</p>
@@ -33,7 +33,7 @@ export default function Menu() {
             </ul>
         ) : (
             <ul>
-                <li onClick={() => goTo("courses")}>
+                <li onClick={() => goTo("home")}>
                     <div className="options-icon">
                         <ion-icon name="book-outline"></ion-icon>                    </div>
                     <p>Cursos</p>
