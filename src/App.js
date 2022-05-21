@@ -10,6 +10,7 @@ import Signup from "./components/Signup.js";
 import Menu from "./components/Menu.js";
 import Course from "./components/Course.js";
 import SummaryPage from "./components/SummaryPage.js";
+import ExamPage from "./components/ExamPage.js";
 
 export default function App() {
     const [course, setCourse] = useState({});
@@ -26,6 +27,7 @@ export default function App() {
                 <Menu />
                 <Routes>
                     <Route path="/courses/:idCourse/summary" element={<SummaryPage />}></Route>
+                    <Route path="/courses/:idCourse/exam" element={<ExamPage />}></Route>
                     <Route path="/" element={<Login />} />
                     <Route path="/test" element={<TestPage />} />
                     <Route path="/signup" element={<Signup />} />
