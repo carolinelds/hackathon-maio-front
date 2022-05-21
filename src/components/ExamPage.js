@@ -2,11 +2,12 @@ import styled from "styled-components";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import ExamQuestion from "./ExamQuestion.js";
 
 
-export default function SummaryPage() {
+export default function ExamPage() {
     const { idCourse } = useParams();
-    const [course, setCourse ] = useState({});
+    const [course, setCourse] = useState({});
 
     useEffect(() => {
         const promise = axios.get(`https://hackathon-maio.herokuapp.com/courses/${idCourse}`);
@@ -22,20 +23,34 @@ export default function SummaryPage() {
     }, []);
 
     const navigate = useNavigate();
-    function nextPage(){
-        navigate(`/courses/${idCourse}/exam`);
+    function nextPage() {
+        navigate(`/course/${idCourse}/exam/result`);
     }
 
-    return (
+   
+
+    return course.exam !== undefined ? (
         <Div>
-            <h1>{course.title}: resumo</h1>
-            <p>{course.summary}</p>
-            <button onClick={nextPage}>
-                <p>Fazer teste de conclusão</p>
-                <ion-icon name="arrow-forward-circle-outline"></ion-icon>
-            </button>
+            <h1>{course.title}: teste final!</h1>
+            {
+                course.exam.map((q,index) => {
+                    const { question, answer } = q;
+                    return <ExamQuestion key={index} index={index} question={question} answer={answer}  />
+                })
+            
+            }
+            <div className="buttons-container">
+                <button onClick={nextPage}>
+                    <p>Enviar respostas</p>
+                    <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+                </button>
+            </div>
         </Div>
-    );
+    ) : (
+        <Div>
+            Carregando...
+        </Div>
+    )
 }
 
 const Div = styled.div`
@@ -46,6 +61,7 @@ const Div = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: #d5e0d8;
+
 
     h1 {
         font-size: 18px;
@@ -64,6 +80,11 @@ const Div = styled.div`
         font-weight: 400;
     }
 
+    .buttons-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
     button {
         padding: 8px;
         background-color: #02cf2b;
@@ -76,7 +97,7 @@ const Div = styled.div`
         align-items: center;
         justify-content: center;
         border-radius: 8px;
-        opacity: 0.8;
+        opacity: 0.6;
     }
     
     button p {
@@ -90,9 +111,5 @@ const Div = styled.div`
     button:hover {
         cursor: pointer;
         opacity: 1;
-    }
-
-
-
-    
+    }  
 `;

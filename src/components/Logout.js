@@ -9,6 +9,7 @@ export default function Logout({ setSidebar, setHiddenLogout }) {
     const { Error } = useContext(UserContext);
     const navigate = useNavigate();
     const [hidden, setHidden] = useState(true);
+    // eslint-disable-next-line
     const [loading, setLoading] = useState(false);
 
     function logout() {

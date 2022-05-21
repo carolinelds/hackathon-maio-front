@@ -10,6 +10,7 @@ import Signup from "./components/Signup.js";
 import Menu from "./components/Menu.js";
 import SummaryPage from "./components/SummaryPage.js";
 import ResultPage from './components/ResultPage.js';
+import ExamPage from "./components/ExamPage.js";
 
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
                 <Routes>
                     <Route path='/home' element={<HomePage />}></Route>
                     <Route path="/courses/:idCourse/summary" element={<SummaryPage />}></Route>
+                    <Route path="/courses/:idCourse/exam" element={<ExamPage />}></Route>
                     <Route path="/" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/test" element={<TestPage />}/>
