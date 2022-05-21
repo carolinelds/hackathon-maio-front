@@ -1,5 +1,11 @@
-export default function Answer({answer}){
+export default function Answer({answer, setCorrect}){
     return(
-        <p>{answer.title}</p>
+        <p onClick={()=> {
+            if(answer.answer){
+                setCorrect(true);
+            } else {
+                setCorrect(false);
+            }
+        }}>{answer.title}</p>
     )
 }
