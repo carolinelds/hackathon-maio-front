@@ -27,7 +27,9 @@ export default function Course() {
 
     return (
         checkCourseExists() ? (
-            <h1>Curso {course.title}</h1>
+            <>
+                <h1>Curso {course.title}</h1>
+            </>
         ):(
             <h1>Nenhum Curso encontrado!</h1>
         ) 
