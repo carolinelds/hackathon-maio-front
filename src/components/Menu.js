@@ -2,9 +2,12 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Logout from "./Logout";
+
 export default function Menu() {
 
     const [sidebar, setSidebar] = useState(false);
+    const [hiddenLogout, setHiddenLogout] = useState(false);
 
     const token = localStorage.getItem("TOKEN");
     //const user = JSON.parse(localStorage.getItem("USER"));
@@ -14,14 +17,14 @@ export default function Menu() {
     }
 
     function renderOptions() {
-        return checkUserLoggedIn(token) ? (
+        return hiddenLogout ? <Logout setHiddenLogout = {setHiddenLogout}  setSidebar = {setSidebar}/> : checkUserLoggedIn(token) ? (
             <ul>
                 <li onClick={() => goTo("courses")}>
                     <div className="options-icon">
                         <ion-icon name="book-outline"></ion-icon>                    </div>
                     <p>Cursos</p>
                 </li>
-                <li>
+                <li onClick ={() => setHiddenLogout(true)}>
                     <div className="options-icon">
                         <ion-icon name="exit"></ion-icon>
                     </div>
