@@ -38,7 +38,7 @@ export default function Menu() {
                         <ion-icon name="book-outline"></ion-icon>                    </div>
                     <p>Cursos</p>
                 </li>
-                <li onClick={() => goTo("login")}>
+                <li onClick={() => goTo("")}>
                     <div className="options-icon" >
                         <ion-icon name="log-in"></ion-icon>
                     </div>
