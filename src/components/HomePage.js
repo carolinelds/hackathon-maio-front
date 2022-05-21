@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
-
-
 export default function HomePage(){
     const [courses, setCourses] = useState("");
 
     useEffect(() => {
-        const promise = axios.get(`http://localhost:5000/courses`);
+        const promise = axios.get(`https://hackathon-maio.herokuapp.com/courses/`);
         promise.then(response => setCourses(response.data));
         promise.catch((e) => console.log(e));
     }, []);
@@ -22,7 +20,7 @@ export default function HomePage(){
                     courses.map((course) => {
                         const {_id, title} = course
                         return (
-                            <Link to={`/course/${title}`} key={_id} style={{ textDecoration: 'none' }}>
+                            <Link to={`courses/${_id}/summary`} key={_id} style={{ textDecoration: 'none' }}>
                             <div className="course">{title}</div>
                             </Link>
                         )
