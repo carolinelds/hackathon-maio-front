@@ -18,7 +18,7 @@ export default function Logout({ setSidebar, setHiddenLogout }) {
                 Authorization: `Bearer ${localStorage.getItem("TOKEN")}`,
             },
         };
-        const promise = axios.delete("http://localhost:5000/logout", config);
+        const promise = axios.delete("http://hackathon-maio.herokuapp.com/logout", config);
         promise.then(() => {
             localStorage.clear();
             navigate("/");

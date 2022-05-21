@@ -23,7 +23,7 @@ export default function SignUp() {
             return;
         }
         delete registerUser.confirm;
-        const promise = axios.post("https://projeto14-petzen-back.herokuapp.com/signup", registerUser);
+        const promise = axios.post("https://hackathon-maio.herokuapp.com/signup", registerUser);
         promise.then(() => {
             navigate("/");
         });
