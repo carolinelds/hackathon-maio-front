@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import {Rings} from "react-loader-spinner"
+import {Rings} from "react-loader-spinner";
 
 
 export default function Login() {
