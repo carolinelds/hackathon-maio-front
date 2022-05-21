@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import styled from "styled-components";
-import YouTube from "react-youtube";
 import Answer from "./Answer";
 
 export default function Questions({
