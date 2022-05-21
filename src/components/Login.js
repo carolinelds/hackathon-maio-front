@@ -2,8 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import {Rings} from "react-loader-spinner"
 
-import Loading from "./Loading";
 
 export default function Login() {
     // eslint-disable-next-line
@@ -46,7 +46,7 @@ export default function Login() {
     return (
         <MainStyle>
             {loading ? (
-                <Loading color={"orange"}/>
+                <Rings width={40} color="#02f75c" />
             ) : (
                 <>
                     <h1>Courson</h1>
@@ -95,7 +95,7 @@ const MainStyle = styled.main`
     h1 {
         font-family: 'Roboto', cursive;
         font-weight: bold;
-        color: #49fc8b;
+        color: var(--light-green);
         font-size: 400%;
         line-height: 50px;
         margin: -5px 0px 24px;
@@ -108,7 +108,7 @@ const MainStyle = styled.main`
         margin-top: 10px;
     }
     button {
-        background-color: var(--cyan);
+        background-color: var(--green);
         border: none;
         width: 31%;
         height: 54px;
@@ -138,7 +138,7 @@ const MainStyle = styled.main`
         margin-bottom: 13px;
     }
     a {
-        color: #49fc8b;
+        color: var(--light-green);
         text-decoration: none;
         font-weight: 700;
         font-size: 15px;

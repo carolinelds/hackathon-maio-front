@@ -2,8 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
-import Loading from "./Loading";
+import {Rings} from "react-loader-spinner"
 
 export default function SignUp() {
     const [loading, setLoading] = useState(false);
@@ -47,7 +46,7 @@ export default function SignUp() {
 
     return (
         <MainStyle>
-            {loading ? <Loading/> : 
+            {loading ? <Rings width={40} color="#02f75c" /> : 
             <>
             <h1>Courson</h1>
             <form
@@ -109,7 +108,7 @@ align-items: center;
 justify-content: center;
 h1 {
     font-weight: bold;
-    color: #49fc8b;
+    color: var(--light-green);
     font-size: 32px;
     line-height: 50px;
     margin: -5px 0px 24px;
@@ -122,7 +121,7 @@ form {
     width: 100%;
 }
 button {
-    background-color: var(--cyan);
+    background-color: var(--green);
     border: none;
     width: 31%;
     height: 54px;
@@ -153,7 +152,7 @@ input{
     margin-bottom: 13px;
 }
 a {
-    color: #49fc8b;
+    color: var(--light-green);
     text-decoration: none;
     font-weight: 700;
     font-size: 15px;
