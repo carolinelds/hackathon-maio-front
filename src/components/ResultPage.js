@@ -13,15 +13,15 @@ export default function ResultPage(){
     }, []); */
 
     return /* (courses.length > 0) ? */ (
-        <ResultPage>
+        <Result>
             <h1>Você passou !</h1>
             <img src="https://https://upload.wikimedia.org/wikipedia/commons/d/d3/Emoji_u1f60e.svg" />
             <p>Afinal, o que vale é tentar!</p>
-        </ResultPage>
+        </Result>
     ) /* : (<p>Loading...</p>) ; */ /* configurar tela de loading */
 }
 
-const ResultPage = styled.section`
+const Result = styled.section`
     background-color: #d5e0d8;
     display: flex;
     justify-content: center;
