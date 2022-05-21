@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TestPage from "./components/TestPage.js";
 import Menu from "./components/Menu.js";
+import SummaryPage from "./components/SummaryPage.js";
 
 export default function App() {
 
@@ -12,6 +13,7 @@ export default function App() {
                 <Menu />
                 <Routes>
                     <Route path="/test" element={<TestPage />}></Route>
+                    <Route path="/courses/:idCourse/summary" element={<SummaryPage />}></Route>
                 </Routes>
             </BrowserRouter>
         </Div >
