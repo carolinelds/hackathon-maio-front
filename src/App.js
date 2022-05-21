@@ -6,8 +6,10 @@ import UserContext from "./contexts/UserContext.js";
 import TestPage from "./components/TestPage.js";
 import GlobalStyle from "./assets/globalStyles";
 import Login from "./components/Login.js";
+import Signup from "./components/Signup.js";
 import Menu from "./components/Menu.js";
 import Course from "./components/Course.js";
+import SummaryPage from "./components/SummaryPage.js";
 
 export default function App() {
     const [course, setCourse] = useState({});
@@ -23,8 +25,10 @@ export default function App() {
             <BrowserRouter>
                 <Menu />
                 <Routes>
+                    <Route path="/courses/:idCourse/summary" element={<SummaryPage />}></Route>
                     <Route path="/" element={<Login />} />
                     <Route path="/test" element={<TestPage />} />
+                    <Route path="/signup" element={<Signup />} />
                     <Route path="/course/:idCourse" element={<Course />} />
                 </Routes>
             </BrowserRouter>

@@ -56,9 +56,9 @@ const GlobalStyles = createGlobalStyle`
     :root {
         --purple: #c747fc;
         --orange: #fa9a39;
-        --light-green: #02cf2b;
+        --light-green: #02f75c;
         --green: #02cf2b;
-        --background: #FCFEFC;
+        --background: #575757;
         --cyan: #00ffea;
         --gray: #aab3ac;
         --light-gray: #d5e0d8;
